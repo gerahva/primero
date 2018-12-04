@@ -18,14 +18,17 @@ public class Cliente {
     private int ident;
     private String nombre;
     private String mail;
+    private Direccion direccion;
     
    public Cliente(){
        
    }
-   public Cliente(int ident, String nombre, String mail) {
+
+    public Cliente(int ident, String nombre, String mail, Direccion direccion) {
         this.ident = ident;
         this.nombre = nombre;
         this.mail = mail;
+        this.direccion = direccion;
     }
 
     public int getIdent() {
@@ -50,6 +53,14 @@ public class Cliente {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 }
 

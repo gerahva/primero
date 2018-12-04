@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package gera.primero;
-import org.springframework.data.annotation.Id;
+
 /**
  *
  * @author otros
  */
 public class Direccion {
-     @Id
+  
     private String calle;
     private int cp;
     private String municipio;

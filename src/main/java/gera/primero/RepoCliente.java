@@ -12,6 +12,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface RepoCliente extends MongoRepository<Cliente, Integer>{
 
-    public void save(Cliente c, Direccion d);
+   
     
 }

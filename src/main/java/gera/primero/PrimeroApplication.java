@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PrimeroApplication implements CommandLineRunner{
 @Autowired RepoUsuario repoU;
+@Autowired RepoCliente repoC;
     
 	public static void main(String[] args) {
 		SpringApplication.run(PrimeroApplication.class, args);
@@ -15,16 +16,21 @@ public class PrimeroApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-     Usuario u= new Usuario(1, "Humberto", "desarrollador jaja");
+   //  Usuario u= new Usuario(1, "Humberto", "desarrollador jaja");
         //repoU.save(u);
         //repoU.deleteById(1);
-        System.out.println("Usuario guardado");
-        
-        for(Usuario us:repoU.findAll())   {
-            System.out.println(us.getNombre());
+       // System.out.println("Usuario guardado");
+           
+     Direccion d=new Direccion("jajalpa", 97990, "Ecaterror");
+  Cliente c= new Cliente(2, "JUCA", "juca@hotmail.com",d);
+        repoC.save(c);
+        System.out.println("Cliente guardado");
+       
+        for(Cliente cl:repoC.findAll())   {
+            System.out.println(cl.getDireccion().getCalle()+" Nombre "+cl.getNombre());
         }
         
-        System.out.println(repoU.findById(1).get().getNombre());  
+        //System.out.println(repoU.findById(1).get().getNombre());  
         
     }
 }
