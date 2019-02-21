@@ -15,7 +15,7 @@ public class Cliente {
 
     
     @Id
-    private int ident;
+    private Integer ident;
     private String nombre;
     private String mail;
     private Direccion direccion;
@@ -24,7 +24,7 @@ public class Cliente {
        
    }
 
-    public Cliente(int ident, String nombre, String mail, Direccion direccion) {
+    public Cliente(Integer ident, String nombre, String mail, Direccion direccion) {
         this.ident = ident;
         this.nombre = nombre;
         this.mail = mail;
@@ -35,7 +35,7 @@ public class Cliente {
         return ident;
     }
 
-    public void setIdent(int ident) {
+    public void setIdent(Integer ident) {
         this.ident = ident;
     }
 
