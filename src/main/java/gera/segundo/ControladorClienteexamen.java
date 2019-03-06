@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gera.primero;
+package gera.segundo;
 
 /**
  *
@@ -34,7 +34,7 @@ public class ControladorClienteexamen {
     @Autowired RepoClienteexamen repoC;   //agregar un atributo de tipo repositorio y anotalo con Autowired
     //Buscar todos los clientes, proporciona una arquitectura REST correspondiente a la entidad
     @GetMapping("/cliente")
-    public List<Cliente> buscarTodos(){
+    public List<Clienteexamen> buscarTodos(){
         
         return repoC.findAll();
     }
@@ -44,7 +44,7 @@ public class ControladorClienteexamen {
     @PostMapping("/cliente")
     public Estatusexamen guardar(@RequestBody String json)throws Exception{
         ObjectMapper maper=new ObjectMapper();
-        Cliente cliente= maper.readValue(json,Cliente.class);
+        Clienteexamen cliente= maper.readValue(json,Clienteexamen.class);
         
         //Se guarda el cliente junto con su tarjeta
         repoC.save(cliente);

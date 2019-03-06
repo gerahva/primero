@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gera.primero;
+package gera.segundo;
 
 /**
  *
@@ -14,14 +14,14 @@ public class Tarjetaexamen {
   
     private String nombre;
     private Integer nip;
-    private Float saldo;
+    private float saldo;
     
    public Tarjetaexamen(){
        
        
    }
 
-    public Tarjetaexamen(String nombre, Integer nip, Float saldo) {
+    public Tarjetaexamen(String nombre, Integer nip, float saldo) {
         this.nombre = nombre;
         this.nip = nip;
         this.saldo = saldo;
@@ -47,7 +47,7 @@ public class Tarjetaexamen {
         return saldo;
     }
 
-    public void setSaldo(Float saldo) {
+    public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
     

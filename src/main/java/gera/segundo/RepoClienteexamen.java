@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gera.primero;
+package gera.segundo;
 
 /**
  *
@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author otros
  */
 
-public interface RepoClienteexamen extends MongoRepository<Cliente, Integer>{
+public interface RepoClienteexamen extends MongoRepository<Clienteexamen, Integer>{
 
    
     
