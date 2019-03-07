@@ -3,29 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gera.segundo;
+package gera.primero;
 import org.springframework.data.annotation.Id;
 
 /**
  *
  * @author humbe
  */
-public class Clienteexamen {
-    
-    public class Cliente {
 
+public class Clienteexamen {
     
     @Id
     private Integer id;
     private String nombre;
-    private float sueldo_base;
+    private Float sueldo_base;
     private Tarjetaexamen tarjeta;
     
-   public Cliente(){
+   public Clienteexamen(){
        
    }
 
-    public Cliente(Integer id, String nombre, Float sueldo_base, Tarjetaexamen tarjeta) {
+    public Clienteexamen(Integer id, String nombre, Float sueldo_base, Tarjetaexamen tarjeta) {
         this.id = id;
         this.nombre = nombre;
         this.sueldo_base = sueldo_base;
@@ -48,7 +46,7 @@ public class Clienteexamen {
         this.nombre = nombre;
     }
 
-    public Float getSueldo_base() {
+    public float getSueldo_base() {
         return sueldo_base;
     }
 
@@ -65,4 +63,4 @@ public class Clienteexamen {
     }
 }
     
-}
+

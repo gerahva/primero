@@ -1,16 +1,16 @@
 package gera.primero;
 
-import gera.segundo.Clienteexamen;
-import gera.segundo.Tarjetaexamen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+
 public class PrimeroApplication implements CommandLineRunner{
 //@Autowired RepoUsuario repoU;
-@Autowired RepoCliente repoC;
+@Autowired RepoClienteexamen repoC;
     
 	public static void main(String[] args) {
 		SpringApplication.run(PrimeroApplication.class, args);
@@ -35,14 +35,14 @@ public class PrimeroApplication implements CommandLineRunner{
         //System.out.println(repoU.findById(1).get().getNombre());  
         */
        
-        Tarjetaexamen d=new Tarjetaexamen("banamex", 123456, 50000.0);
-     Clienteexamen c= new Clienteexamen(9, "Luis", 25158,d);
+        Tarjetaexamen d=new Tarjetaexamen("bancomer", 234567, (float) 25000.0);
+     Clienteexamen c= new Clienteexamen(8, "Carlos", (float) 21548,d);
         repoC.save(c);
         System.out.println("Cliente guardado");
        
         for(Clienteexamen cl:repoC.findAll())   {
             
-            System.out.println(cl.getTarjetaexamen().get()+" Nombre "+cl.getNombre());
+            System.out.println(cl.getTarjetaexamen().getNombre()+" Nombre "+cl.getNombre());
         }
     }
 }

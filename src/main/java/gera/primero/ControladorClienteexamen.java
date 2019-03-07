@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gera.segundo;
+package gera.primero;
 
 /**
  *
@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorClienteexamen {
     @Autowired RepoClienteexamen repoC;   //agregar un atributo de tipo repositorio y anotalo con Autowired
     //Buscar todos los clientes, proporciona una arquitectura REST correspondiente a la entidad
-    @GetMapping("/cliente")
+    @GetMapping("/clienteexamen")
     public List<Clienteexamen> buscarTodos(){
         
         return repoC.findAll();
@@ -41,7 +41,7 @@ public class ControladorClienteexamen {
     
     
     //Guardar un cliente junto con su tarjeta
-    @PostMapping("/cliente")
+    @PostMapping("/clienteexamen")
     public Estatusexamen guardar(@RequestBody String json)throws Exception{
         ObjectMapper maper=new ObjectMapper();
         Clienteexamen cliente= maper.readValue(json,Clienteexamen.class);
@@ -56,7 +56,7 @@ public class ControladorClienteexamen {
      
     //Borrar un cliente por medio de su identificador
  
-    @DeleteMapping("/cliente/{ident}")
+    @DeleteMapping("/clienteexamen/{ident}")
     public Estatusexamen borrar(@PathVariable Integer ident){
           repoC.deleteById(ident);
         Estatusexamen e=new Estatusexamen("Cliente borrado con exito", true);
