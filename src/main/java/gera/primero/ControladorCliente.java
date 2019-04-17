@@ -45,14 +45,18 @@ public class ControladorCliente {
     }
 
     //Guardar
+    @CrossOrigin()
     @PostMapping("/cliente")
     public Estatus guardar(@RequestBody String json) throws Exception {
         ObjectMapper maper = new ObjectMapper();
 
         Estatus e = new Estatus();
-        Cliente cliente = maper.readValue(json, Cliente.class);
+     
+        Cliente cliente = maper.readValue(json, Cliente.class);  
+        System.out.println("Si llego "+cliente);
         //Buscamos
-        if (repoC.findById(cliente.getIdent()).get() != null) {
+        
+          if(repoC.existsById(cliente.getIdent())){
             e.setSuccess(false);
             e.setMensaje("Ese id ya existe");
         } else {

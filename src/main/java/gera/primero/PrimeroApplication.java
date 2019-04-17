@@ -35,14 +35,14 @@ public class PrimeroApplication implements CommandLineRunner{
         //System.out.println(repoU.findById(1).get().getNombre());  
         */
        
-        Tarjetaexamen d=new Tarjetaexamen("bancomer", 234567, (float) 25000.0);
-     Clienteexamen c= new Clienteexamen(8, "Carlos", (float) 21548,d);
-        repoC.save(c);
-        System.out.println("Cliente guardado");
+      //  Tarjetaexamen d=new Tarjetaexamen("bancomer", 234567, (float) 25000.0);
+    // Clienteexamen c= new Clienteexamen(8, "Carlos", (float) 21548,d);
+     //   repoC.save(c);
+      //  System.out.println("Cliente guardado");
        
-        for(Clienteexamen cl:repoC.findAll())   {
+    //    for(Clienteexamen cl:repoC.findAll())   {
             
-            System.out.println(cl.getTarjetaexamen().getNombre()+" Nombre "+cl.getNombre());
-        }
+         //   System.out.println(cl.getTarjetaexamen().getNombre()+" Nombre "+cl.getNombre());
+      //  }
     }
 }
