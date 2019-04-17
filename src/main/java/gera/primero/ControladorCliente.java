@@ -26,56 +26,63 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("/api")
 public class ControladorCliente {
-    @Autowired RepoCliente repoC;
+
+    @Autowired
+    RepoCliente repoC;
+
     //BUscar Todos (CRUD) R
     @GetMapping("/cliente")
-    public List<Cliente> buscarTodos(){
-        
+    public List<Cliente> buscarTodos() {
+
         return repoC.findAll();
     }
-    
-    
+
     //BUscar por id (CRUD) R
     @GetMapping("/cliente/{ident}")
-    public Cliente buscarPorId(@PathVariable Integer ident){
-        
+    public Cliente buscarPorId(@PathVariable Integer ident) {
+
         return repoC.findById(ident).get();
     }
-    
+
     //Guardar
     @PostMapping("/cliente")
-    public Estatus guardar(@RequestBody String json)throws Exception{
-        ObjectMapper maper=new ObjectMapper();
-        Cliente cliente= maper.readValue(json,Cliente.class);
-        
-        //Guardamos
-        repoC.save(cliente);
-        Estatus e=new Estatus("Cliente guardado con exito", true);
+    public Estatus guardar(@RequestBody String json) throws Exception {
+        ObjectMapper maper = new ObjectMapper();
+
+        Estatus e = new Estatus();
+        Cliente cliente = maper.readValue(json, Cliente.class);
+        //Buscamos
+        if (repoC.findById(cliente.getIdent()).get() != null) {
+            e.setSuccess(false);
+            e.setMensaje("Ese id ya existe");
+        } else {
+            //Guardamos
+            repoC.save(cliente);
+            e.setSuccess(true);
+            e.setMensaje("Cliente guardado con exito");
+        }
+
         return e;
     }
-    
+
     //Actualizar
-     @PutMapping("/cliente")
-    public Estatus actualizar(@RequestBody String json)throws Exception{
-        ObjectMapper maper=new ObjectMapper();
-        Cliente cliente= maper.readValue(json,Cliente.class);
-        
+    @PutMapping("/cliente")
+    public Estatus actualizar(@RequestBody String json) throws Exception {
+        ObjectMapper maper = new ObjectMapper();
+        Cliente cliente = maper.readValue(json, Cliente.class);
+
         //Guardamos
         repoC.save(cliente);
-        Estatus e=new Estatus("Cliente actualizado con exito", true);
+        Estatus e = new Estatus("Cliente actualizado con exito", true);
         return e;
     }
-    
+
     //Borrar
- 
     @DeleteMapping("/cliente/{ident}")
-    public Estatus borrar(@PathVariable Integer ident){
-          repoC.deleteById(ident);
-        Estatus e=new Estatus("Cliente borrado con exito", true);
+    public Estatus borrar(@PathVariable Integer ident) {
+        repoC.deleteById(ident);
+        Estatus e = new Estatus("Cliente borrado con exito", true);
         return e;
     }
-    
-    
-    
-    
+
 }
