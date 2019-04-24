@@ -37,12 +37,59 @@ public class ControladorCliente {
         return repoC.findAll();
     }
 
+
+
+
+
+
+
+     //BUscar por calle
+    @GetMapping("/cliente/calle/{callesita}")
+    public List<Cliente> buscaPorCalle(@PathVariable String callesita) {
+        System.out.println("jajajajja");
+        return repoC.findByDireccionCalle(callesita);
+    }
+
+// Buscar por nombre
+@GetMapping("/cliente/nombre/{nombresin}")
+public List<Cliente> buscarPorNombre(@PathVariable String nombresin) {
+    return repoC.findByNombre(nombresin);
+
+}
+// Buscar por mail
+@GetMapping("/cliente/correo/{correito}")
+public List<Cliente> buscarPorCorreo(@PathVariable String correito) {
+    return repoC.findByMail(correito);
+}
+    // Buscar por CP
+    @GetMapping("/cliente/cp/{codpostal}")
+    public List<Cliente> buscarPorCP(@PathVariable Integer codpostal) {
+        return repoC.findByDireccionCp(codpostal);
+    }
+
+    // Buscar por Municipio
+    @GetMapping("/cliente/municipio/{municipal}")
+    public List<Cliente> buscarMunicipio(@PathVariable String municipal) {
+        return repoC.findByDireccionMunicipio(municipal);
+    }
+
+
+
+
     //BUscar por id (CRUD) R
     @GetMapping("/cliente/{ident}")
     public Cliente buscarPorId(@PathVariable Integer ident) {
 
         return repoC.findById(ident).get();
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     //Guardar
     @CrossOrigin()

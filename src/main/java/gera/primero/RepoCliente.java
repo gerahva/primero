@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gera.primero;
+import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  *
@@ -12,6 +13,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface RepoCliente extends MongoRepository<Cliente, Integer>{
 
-   
-    
+    List<Cliente> findByDireccionCalle(String calle);
+    List<Cliente>  findByNombre(String nombresin);
+    List<Cliente>  findByMail(String correito);
+    List<Cliente>  findByDireccionCp(Integer codpostal);
+    List<Cliente>  findByDireccionMunicipio(String municipal);
 }
