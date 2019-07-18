@@ -36,8 +36,9 @@ Mensajeria mensa=new Mensajeria();
         Data data =new Data();
         data.setTitle(redSocial.nickname);
          data.setBody(mensaje);
-        mensa.setData(data);
         mensa.setTo(token);
+        mensa.setData(data);
+
 
         System.out.println("MENSJE A ENVIAR POR FIREBAS "+mensa);
 // Ajustamos los headers
