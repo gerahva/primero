@@ -32,9 +32,9 @@ public class ControladorRedSocial {
         RedSocial red = maper.readValue(json, RedSocial.class);
         System.out.println("Si llego "+red);
 
-
+            repoRedSocial.save(red);
             e.setSuccess(true);
-            e.setMensaje("Red Social guardado con exito");
+            e.setMensaje("Red Social guardado con exito ya!!");
 
 return e;
 
