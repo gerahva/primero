@@ -9,6 +9,14 @@ public class RedSocial {
 
     String nickname;
 
+    @Override
+    public String toString() {
+        return "RedSocial{" +
+                "token='" + token + '\'' +
+                ", nickname='" + nickname + '\'' +
+                '}';
+    }
+
     public String getToken() {
         return token;
     }
