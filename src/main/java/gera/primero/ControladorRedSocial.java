@@ -34,7 +34,8 @@ public class ControladorRedSocial {
 
             repoRedSocial.save(red);
             e.setSuccess(true);
-            e.setMensaje("Red Social guardado con exito ya!!");
+            e.setMensaje("Red Social guardado con exito ya!!" +
+                    "");
 
 return e;
 
